@@ -1,4 +1,4 @@
-package com.instagram;
+package com.instagram.entity;
 
 public class FacebookUser {
 	private String name;

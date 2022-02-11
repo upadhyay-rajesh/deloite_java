@@ -1,6 +1,8 @@
-package com.instagram;
+package com.instagram.view;
 
 import java.util.Scanner;
+import com.instagram.controller.FacebookController;
+import com.instagram.controller.FacebookControllerInterface;
 
 public class FacebookView {
 
@@ -24,7 +26,8 @@ public class FacebookView {
 
 		int ch = sc.nextInt(); // nextInt() function will read user input in form of integer
 		
-		FacebookController fv=new FacebookController();
+		//FacebookController fv=new FacebookController();//we should not create object in given way otherwise it will lead to tight coupling
+		FacebookControllerInterface fv=new FacebookController();
 
 		switch (ch) {
 		case 1:

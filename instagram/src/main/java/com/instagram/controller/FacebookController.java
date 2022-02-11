@@ -1,12 +1,13 @@
-package com.instagram;
+package com.instagram.controller;
 
 import java.util.Scanner;
-
-public class FacebookController {
+import com.instagram.entity.*;
+import com.instagram.service.*;
+public class FacebookController implements FacebookControllerInterface{
 	
-	static FacebookUser uu[]=new FacebookUser[10];
 	
-	void createProfile() {
+	
+	public void createProfile() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Name : ");
 		String name=sc.next();
@@ -26,19 +27,20 @@ public class FacebookController {
 		fb.setEmail(email);
 		fb.setAddress(address);
 		
-		for(int i=0;i<uu.length;i++) {
-			if(uu[i]==null) {
-				uu[i]=fb;
-				break;
-			}
+		FacebookServiceInterface fs=new FacebookService();
+		int i=fs.createProfileService(fb);
+		
+		if(i>0) {
+			System.out.println("your profile created successfully and detail is below");
 		}
 		
 		
-		System.out.println("your profile created successfully and detail is below");
-		System.out.println("Name is "+fb.getName()+" password is "+fb.getPassword()+" email is "+fb.getEmail()+" address is "+fb.getAddress());
+		
+		
+		
 	}
 	
-	void deleteProfile() {
+	public void deleteProfile() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Name to delete profile : ");
 		String name=sc.next();
@@ -48,7 +50,7 @@ public class FacebookController {
 		
 	}
 	
-	void viewProfile() {
+	public void viewProfile() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Name to view profile : ");
 		String name=sc.next();
@@ -58,7 +60,7 @@ public class FacebookController {
 		
 	}
 	
-	void searchProfile() {
+	public void searchProfile() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Name to search profile : ");
 		String name=sc.next();
@@ -68,7 +70,10 @@ public class FacebookController {
 		
 	}
 	
-	void viewAllProfile() {
+	public void viewAllProfile() {
+		
+		FacebookServiceInterface fs=new FacebookService();
+		FacebookUser uu[]=fs.viewAllProfileService();
 		
 		for(int i=0;i<uu.length;i++) {
 			if(uu[i]!=null) {
@@ -79,7 +84,7 @@ public class FacebookController {
 		}
 		
 	}
-	void editProfile() {
+	public void editProfile() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Name to edit profile : ");
 		String name=sc.next();
