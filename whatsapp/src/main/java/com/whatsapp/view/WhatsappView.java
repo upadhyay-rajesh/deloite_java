@@ -9,7 +9,7 @@ public class WhatsappView {
 
 	public static void main(String[] args) {
 		
-		String ss="y";
+		String ss="y"; //
 		
 		while(ss.equals("y")) {
 		System.out.println("*************MAIN MENU****************");
