@@ -1,5 +1,7 @@
 package com.whatsapp.service;
 
+import java.util.List;
+
 import com.whatsapp.dao.WhatsappDAO;
 import com.whatsapp.dao.WhatsappDAOInterface;
 import com.whatsapp.entity.WhatsappUser;
@@ -18,10 +20,22 @@ public class WhatsappService implements WhatsappServiceInterface {
 		return wd.createProfileDAO(wu);
 	}
 
-	public WhatsappUser[] viewallProfileService() {
+	public List<WhatsappUser> viewallProfileService() {
 		// TODO Auto-generated method stub
-		WhatsappUser[] w=null;
+		WhatsappDAOInterface wd=new WhatsappDAO();
+		
+		List<WhatsappUser> w=wd.viewAllProfileDAO();
 		return w;
+	}
+
+	public WhatsappUser viewProfileService(WhatsappUser ws) {
+		WhatsappDAOInterface wd=new WhatsappDAO();
+		return wd.viewProfileDAO(ws);
+	}
+
+	public int deleteProfileService(WhatsappUser wu) {
+		WhatsappDAOInterface wd=new WhatsappDAO();
+		return wd.deleteProfileDAO(wu);
 	}
 
 }
