@@ -16,7 +16,7 @@ public class WhatsappView {
 		System.out.println("press 1 to create profile");
 		System.out.println("press 2 to view all profile");
 		System.out.println("press 3 to view  profile");
-		System.out.println("press 4 to delete  profile");
+		System.out.println("press 4 to delete  profile"); 
 		
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter your choice");
