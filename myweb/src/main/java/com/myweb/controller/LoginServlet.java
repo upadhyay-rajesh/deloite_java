@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 				out.println("<button><a href=ViewProfileServlet>View Profile</a></button>");
 				out.println("<button><a href=EditProfileServlet>Edit Profile</a></button>");
 				out.println("<button><a href=DeleteProfileServlet>Delete Profile</a></button>");
-				out.println("<button><a href=search.html>Search Profile</a></button>");
+				out.println("<button><a href=search.jsp>Search Profile</a></button>");
 				out.println("<button><a href=ViewAllProfileServlet>View All Profile</a></button>");
 			}
 			else {

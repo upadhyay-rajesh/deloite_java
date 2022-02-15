@@ -3,6 +3,7 @@ package com.myweb.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,17 +31,26 @@ public class RegistrationServlet extends HttpServlet {
 		MyWebServiceInterface ms=new MyWebService();
 		int i=ms.createProfileService(w);
 		
-		response.setContentType("text/html");
-		PrintWriter out=response.getWriter();
+		if(i>0) {
+			request.setAttribute("result", "Profile created <a href=login.jsp>Sign In</a>");
+			
+			RequestDispatcher rd=getServletContext().getRequestDispatcher("/register.jsp");
+			rd.forward(request, response);
+		}
+		else {
+			request.setAttribute("result","could not create profile");
+			RequestDispatcher rd=getServletContext().getRequestDispatcher("/register.jsp");
+			rd.forward(request, response);
+		}
 		
-		out.println("<html><body><center>");
-			if(i>0) {
-				out.println("Profile created <a href=login.html>Sign In</a>");
-			}
-			else {
-				out.println("could not create profile");
-			}
-		out.println("</center></body></html>");
+		
+		/*
+		 * response.setContentType("text/html"); PrintWriter out=response.getWriter();
+		 * 
+		 * out.println("<html><body><center>");
+		 * 
+		 * out.println("</center></body></html>");
+		 */
 		
 	}
 
