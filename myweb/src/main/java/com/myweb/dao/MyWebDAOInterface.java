@@ -16,4 +16,6 @@ public interface MyWebDAOInterface {
 
 	int deleteProfileDAO(MyWebEntity m);
 
+	int editProfileDAO(MyWebEntity m);
+
 }

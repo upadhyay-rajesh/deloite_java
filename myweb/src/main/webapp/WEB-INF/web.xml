@@ -34,6 +34,18 @@
   	<description></description>
   	<servlet-class>com.myweb.controller.DeleteProfileServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EditProfileServlet</servlet-name>
+  	<display-name>EditProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.myweb.controller.EditProfileServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditServlet1</servlet-name>
+  	<display-name>EditServlet1</display-name>
+  	<description></description>
+  	<servlet-class>com.myweb.controller.EditServlet1</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegistrationServlet</servlet-name>
   	<url-pattern>/RegistrationServlet</url-pattern>
@@ -53,5 +65,13 @@
   <servlet-mapping>
   	<servlet-name>DeleteProfileServlet</servlet-name>
   	<url-pattern>/DeleteProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditProfileServlet</servlet-name>
+  	<url-pattern>/EditProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditServlet1</servlet-name>
+  	<url-pattern>/EditServlet1</url-pattern>
   </servlet-mapping>
 </web-app>

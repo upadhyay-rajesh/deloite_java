@@ -86,6 +86,25 @@ public class MyWebDAO implements MyWebDAOInterface {
 		return i;
 	}
 
+	@Override
+	public int editProfileDAO(MyWebEntity m) {
+		int i=0;
+		SessionFactory sf=new Configuration().configure().buildSessionFactory();
+		Session ss=sf.openSession();
+		EntityTransaction et=ss.getTransaction();
+		System.out.println(m.getEmail());
+		et.begin();
+			Query q=ss.createQuery("update com.myweb.entity.MyWebEntity m set m.name=:nm , m.password=:pw, m.address=:ad where m.email=:em1");
+			q.setParameter("nm", m.getName());
+			q.setParameter("pw", m.getPassword());
+			q.setParameter("ad", m.getAddress() );
+			q.setParameter("em1", m.getEmail());
+			i=q.executeUpdate();
+		et.commit();
+		
+		return i;
+	}
+
 }
 
 

@@ -16,4 +16,6 @@ public interface MyWebServiceInterface {
 
 	int deleteprofile(MyWebEntity m);
 
+	int editprofile(MyWebEntity m);
+
 }

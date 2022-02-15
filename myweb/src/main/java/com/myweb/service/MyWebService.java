@@ -39,4 +39,10 @@ public class MyWebService implements MyWebServiceInterface {
 		return md.deleteProfileDAO(m);
 	}
 
+	@Override
+	public int editprofile(MyWebEntity m) {
+		MyWebDAOInterface md=new MyWebDAO();
+		return md.editProfileDAO(m);
+	}
+
 }
