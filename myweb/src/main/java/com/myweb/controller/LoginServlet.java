@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.myweb.entity.MyWebEntity;
 import com.myweb.service.MyWebService;
@@ -30,11 +31,15 @@ public class LoginServlet extends HttpServlet {
 		
 		out.println("<html><body><center>");
 			if(b) {
+				
+				HttpSession s=request.getSession(true);
+				s.setAttribute("id", email);
+				
 				out.println("Welcome "+email);
 				out.println("<button><a href=ViewProfileServlet>View Profile</a></button>");
 				out.println("<button><a href=EditProfileServlet>Edit Profile</a></button>");
 				out.println("<button><a href=DeleteProfileServlet>Delete Profile</a></button>");
-				out.println("<button><a href=SearchProfileServlet>Search Profile</a></button>");
+				out.println("<button><a href=search.html>Search Profile</a></button>");
 				out.println("<button><a href=ViewAllProfileServlet>View All Profile</a></button>");
 			}
 			else {
