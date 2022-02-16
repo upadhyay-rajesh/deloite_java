@@ -38,12 +38,62 @@
 		
 	}
 	
+	function loadCountry(){
+		//step 1
+		var xhr=new XMLHttpRequest();
+		//step 2
+		
+		xhr.open("GET","LoadCountryServlet",true);
+		
+		//step3
+		xhr.send();
+		
+		//step 4
+		xhr.onreadystatechange=function(){
+			//alert(xhr.readyState);
+			if(xhr.readyState==4){
+				
+				var res=xhr.responseText;
+				//alert(res);
+				document.getElementById("country").innerHTML=res;
+			}
+		}
+	}
+	
+	function loadCaptcha(){
+		//alert("dd");
+		var xhr=new XMLHttpRequest();
+		xhr.open("GET","LoadCaptchaServlet",true);
+		xhr.send();
+		
+		xhr.onreadystatechange=function(){
+			//alert(xhr.readyState);
+			if(xhr.readyState==4){
+				
+				var res=xhr.responseText;
+				//alert(res);
+				document.getElementById("captcha").innerHTML=res;
+			}
+		}
+	}
+	
+	function validatecaptcha(){
+		v1=document.getElementById("c5").value;
+		v2=document.getElementById("c6").value;
+		if(v1==v2){
+			document.getElementById("b").disabled=false;
+		}
+		else{
+			document.getElementById("cresult").innerHTML="captcha validation fail";
+		}
+	}
+	
 
 </script>
 
 
 </head>
-<body>
+<body onload="loadCountry()">
   <center>
 	<p><font color=red size=5>Registration Page</font></p>
 	<form action="RegistrationServlet" method="post">
@@ -61,11 +111,15 @@
 			<td>Address</td><td><input type=text name=ad></td>
 		</tr>
 		<tr>
-			<td><input type=button value=SignUp  ></td><td><input type=reset></td>
+			<td>Country</td><td><div id="country" ></div></td>
+		</tr>
+		
+		<tr>
+			<td><input type=button value=SignUp disabled id="b" ></td><td><input type=reset></td>
 		</tr>
 	</table>
 	</form>
-	
+	<div id="captcha" ></div>
 	<div id="a"></div>
 	<br>
 	<%= request.getAttribute("result") %>
