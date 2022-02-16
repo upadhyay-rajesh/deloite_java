@@ -105,6 +105,21 @@ public class MyWebDAO implements MyWebDAOInterface {
 		return i;
 	}
 
+	@Override
+	public boolean checkemailDAO(MyWebEntity m) {
+		SessionFactory sf=new Configuration().configure().buildSessionFactory();
+		Session ss=sf.openSession();
+		
+		Query q=ss.createQuery("from com.myweb.entity.MyWebEntity m where m.email=:em1");
+		q.setParameter("em1", m.getEmail());
+		
+		List<MyWebEntity> ll=q.getResultList();
+		if(ll.size()>0) {
+			return true;
+		}
+		return false;
+	}
+
 }
 
 

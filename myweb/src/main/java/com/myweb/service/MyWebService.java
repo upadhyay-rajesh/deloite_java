@@ -45,4 +45,10 @@ public class MyWebService implements MyWebServiceInterface {
 		return md.editProfileDAO(m);
 	}
 
+	@Override
+	public boolean checkemail(MyWebEntity m) {
+		MyWebDAOInterface md=new MyWebDAO();
+		return md.checkemailDAO(m);
+	}
+
 }

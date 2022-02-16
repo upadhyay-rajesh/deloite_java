@@ -18,4 +18,6 @@ public interface MyWebServiceInterface {
 
 	int editprofile(MyWebEntity m);
 
+	boolean checkemail(MyWebEntity m);
+
 }

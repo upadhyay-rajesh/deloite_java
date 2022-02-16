@@ -18,4 +18,6 @@ public interface MyWebDAOInterface {
 
 	int editProfileDAO(MyWebEntity m);
 
+	boolean checkemailDAO(MyWebEntity m);
+
 }
