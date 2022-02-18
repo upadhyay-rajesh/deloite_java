@@ -3,6 +3,6 @@
 
     
     ${n1} <br>
-    ${n2}  <br>
-    ${n3}  <br>
-    ${n4}  <br>
+    
+    <a href="showAll">displayAllRecord</a>
+   
