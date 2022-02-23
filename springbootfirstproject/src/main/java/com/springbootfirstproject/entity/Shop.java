@@ -12,8 +12,11 @@ public class Shop {
 	String shop_owner_name;
 	String shop_location;
 	
+	
 	@OneToMany(mappedBy = "shop")
 	List<Dealer> dealerList;
+	
+	
 
 	public String getShop_id() {
 		return shop_id;
