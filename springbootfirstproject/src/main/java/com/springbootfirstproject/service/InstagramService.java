@@ -1,5 +1,6 @@
 package com.springbootfirstproject.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,8 +9,12 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springbootfirstproject.dao.DealerDAOInterface;
 import com.springbootfirstproject.dao.InstagramDAOInterface;
+import com.springbootfirstproject.dao.ShopDAOInterface;
+import com.springbootfirstproject.entity.Dealer;
 import com.springbootfirstproject.entity.InstagramUser;
+import com.springbootfirstproject.entity.Shop;
 
 @Service
 @Transactional
@@ -17,6 +22,14 @@ public class InstagramService implements InstagramServiceInterface{
 	
 	@Autowired
 	InstagramDAOInterface id;
+	
+	@Autowired
+	ShopDAOInterface sid;
+	
+	@Autowired
+	DealerDAOInterface did;
+	
+	
 
 	@Override
 	public int createProfile(InstagramUser iu) {
@@ -67,4 +80,47 @@ public class InstagramService implements InstagramServiceInterface{
 		
 	}
 
+	@Override
+	public String assigndealertoshop(String shopid, String dealerid) {
+		Optional<Shop> s1=sid.findById(shopid);
+		Shop ss=s1.get();
+		
+		
+		Optional<Dealer> s11=did.findById(dealerid);
+		Dealer dd=s11.get();
+		dd.setShop(ss);
+		
+		List<Dealer> ld=new ArrayList<Dealer>();
+		ld.add(dd);
+		
+		ss.setDealerList(ld);
+		
+		sid.save(ss);
+		
+		
+		
+		return "assignment success";
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

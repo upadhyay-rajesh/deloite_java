@@ -105,9 +105,12 @@ public class FacebookBootController {
 	}
 	
 	
+	@PostMapping("assigndealertoshop/{shopid}/{dealerid}")
 	
-	
-	
+	public String assign(@PathVariable("shopid") String shopid,@PathVariable("dealerid") String dealerid) {
+		String str=is1.assigndealertoshop(shopid,dealerid);
+		return str;
+	}
 	
 	
 	

@@ -18,4 +18,6 @@ public interface InstagramServiceInterface {
 
 	String loginProfile(InstagramUser i);
 
+	String assigndealertoshop(String shopid, String dealerid);
+
 }
